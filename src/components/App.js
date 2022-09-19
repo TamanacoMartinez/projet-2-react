@@ -11,7 +11,9 @@ import Vaisseaux from "../vaisseaux/components/Vaisseaux";
 import Vaisseau from "../vaisseaux/components/Vaisseau";
 import Véhicules from "../véhicules/components/Véhicules";
 import Véhicule from "../véhicules/components/Véhicule";
-
+import { Container } from "react-bootstrap";
+import User from "../auth/components/User";
+import AppContainer from "./AppContainer";
 
 const filmService = new FilmService();
 
@@ -32,16 +34,21 @@ useEffect(() =>{
 
   return ( 
           <BrowserRouter>
-            <Routes>
-              <Route path="/" element={<Films/>}/>
-              <Route path="/:id" element={<Film/>}/>
-              <Route path="/personnages" element={<Personnages/>}/>
-              <Route path="/personnages/:id" element={<Personnage/>}/>
-              <Route path="/vaisseaux" element={<VaisseauxSpatiaux/>}/>
-              <Route path="/vaisseaux/:id" element={<VaisseauSpatial/>}/>
-              <Route path="/vehicules" element={<Véhicules/>}/>
-              <Route path="/vehicules/:id" element={<Véhicule/>}/>
-            </Routes>
+            <AppContainer>
+              <Container>
+                <User/>
+                <Routes>
+                  <Route path="/" element={<Films/>}/>
+                  <Route path="/:id" element={<Film/>}/>
+                  <Route path="/personnages" element={<Personnages/>}/>
+                  <Route path="/personnages/:id" element={<Personnage/>}/>
+                  <Route path="/vaisseaux" element={<VaisseauxSpatiaux/>}/>
+                  <Route path="/vaisseaux/:id" element={<VaisseauSpatial/>}/>
+                  <Route path="/vehicules" element={<Véhicules/>}/>
+                  <Route path="/vehicules/:id" element={<Véhicule/>}/>
+                </Routes>
+              </Container>
+            </AppContainer>
           </BrowserRouter>
 
         
